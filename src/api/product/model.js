@@ -17,5 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,
     })
+
+    Product.associate = function (models) {
+        models.Product.belongsTo(models.User, {
+            as: 'createdBy'
+        });
+    };
+    
     return Product
 }

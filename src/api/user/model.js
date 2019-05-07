@@ -46,5 +46,12 @@ module.exports = (sequelize, DataTypes) => {
         // createdAt: null,
         // updatedAt: null
     })
+
+    User.associate = function (models) {
+        models.User.hasMany(models.Product, {
+            as: 'products',
+        });
+    };
+
     return User
 }

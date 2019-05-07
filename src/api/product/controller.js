@@ -11,8 +11,8 @@ export const create = (req, res, next) => {
 }
 
 export const index = (req, res) => {
-    Product.findAll().then(data => {
-        res.send(data)
+    Product.findAll({ include: [{ model: User, as: 'createdBy' }] }).then(data => {
+        res.status(200).json(data)
     }).catch(err => {
         res.status(404).json(err)
     })

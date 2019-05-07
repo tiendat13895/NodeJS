@@ -15,6 +15,12 @@ const db = {
     Product: productModel
 }
 
+Object.keys(db).forEach(modelName => { //join to connect 2 table
+    if (db[modelName].associate) {
+        db[modelName].associate(db);
+    }
+});
+
 db.sequelize = sequelize; //object
 db.Sequelize = Sequelize; //class
 
