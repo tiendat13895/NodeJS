@@ -1,9 +1,9 @@
 import db from './../../services/sequelize'
-const Product = db.Product
+const Supplier = db.Supplier
 
 export const create = (req, res, next) => {
     const body = req.body
-    Product.create(body).then(data => {
+    Supplier.create(body).then(data => {
         res.status(201).json(data)
     }).catch(err => {
         res.status(404).json(err)
@@ -11,7 +11,7 @@ export const create = (req, res, next) => {
 }
 
 export const index = (req, res) => {
-    Product.findAll({ include: [{ model: User, as: 'createdBy' }] }).then(data => { //show ra them 1 cot CreatedBy cua User khi query
+    Supplier.findAll().then(data => { 
         res.status(200).json(data)
     }).catch(err => {
         res.status(404).json(err)
@@ -21,7 +21,7 @@ export const index = (req, res) => {
 export const update = (req, res) => {
     const id = req.params.id
     const body = req.body
-    Product.update(body, { where: { id: id } }).then(data => {
+    Supplier.update(body, { where: { id: id } }).then(data => {
         res.status(201).json(data)
     }).catch(err => {
         res.status(404).json(err)
@@ -31,7 +31,7 @@ export const update = (req, res) => {
 
 export const show = (req, res) => {
     const id = req.params.id
-    Product.findByPk(id).then(data => {
+    Supplier.findByPk(id).then(data => {
         res.send(data)
     }).catch(err => {
         res.status(404).json(err)
@@ -40,7 +40,7 @@ export const show = (req, res) => {
 
 export const remove = (req, res) => {
     const id = req.params.id
-    Product.destroy({ where: { id: id } }).then(data => {
+    Supplier.destroy({ where: { id: id } }).then(data => {
         res.status(200).send()
     }).catch(err => {
         res.status(404).json(err)

@@ -47,11 +47,11 @@ module.exports = (sequelize, DataTypes) => {
         // updatedAt: null
     })
 
-    User.associate = function (models) {
-        models.User.hasMany(models.Product, {
-            as: 'products',
-        });
-    };
+    // User.associate = function (models) {
+    //     models.User.hasMany(models.Product, {
+    //         as: 'products',
+    //     });
+    // };
 
     return User
 }

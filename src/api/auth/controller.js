@@ -1,5 +1,6 @@
 import db from './../../services/sequelize'
 const User = db.User
+import { sign } from './../../services/jwt'
 
 export const login = (req, res, next) => {
     const user = req.user

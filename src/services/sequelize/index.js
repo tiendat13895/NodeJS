@@ -9,10 +9,12 @@ const sequelize = new Sequelize(mssql.database, mssql.username, mssql.password,
 
 var userModel = sequelize['import']('../../api/user/model');
 var productModel = sequelize['import']('../../api/product/model');
+var supplierModel = sequelize['import']('../../api/supplier/model');
 
 const db = {
     User: userModel,
-    Product: productModel
+    Product: productModel,
+    Supplier: supplierModel
 }
 
 Object.keys(db).forEach(modelName => { //join to connect 2 table

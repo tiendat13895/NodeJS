@@ -5,7 +5,8 @@ import { login, register, forgotPassword } from './controller'
 
 const router = new Router()
 
-router.post('/login', password(), login)
+// router.post('/login', password(), login)
+router.put('/login', password(), login)
 router.post('/register', register)
 router.post('/forgot', forgotPassword)
 
