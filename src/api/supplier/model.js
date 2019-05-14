@@ -13,13 +13,17 @@ module.exports = (sequelize, DataTypes) => {
         contactid: DataTypes.INTEGER,
         // createdAt: DataTypes.DATE,
         // updatedAt: DataTypes.DATE,
-    })
+    },
+        {
+            createdAt: false,
+            updatedAt: false
+        })
 
     // Supplier.associate = function (models) {
     //     models.Supplier.belongsTo(models.User, {
     //         as: 'createdBy' //link createdBy voi primary key cua bang User (ID)
     //     });
     // };
-    
+
     return Supplier
 }
