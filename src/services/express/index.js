@@ -20,9 +20,12 @@ export default (apiRoot, routers) => {
   app.use(express.static(path.join(__dirname, '../../../www')))
   app.use(express.static(path.join(__dirname, '../../../apidoc')))
   app.use('/images', express.static(path.join(__dirname, '../../../images')))
-  app.get('/*', (req, res) => {
+  app.get('/docs', (req, res) => {
     res.sendFile(path.join(__dirname, '../../../apidoc/index.html'))
   })
-  app.use(errorHandler())
+    // app.get('/*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, '../../../www/index.html'))
+// })
+  // app.use(errorHandler())
   return app
 }
