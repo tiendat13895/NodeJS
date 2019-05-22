@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "pohhuat2vietnam",
+    "database": "DC_ERP_test",
+    "host": "128.128.40.4",
+    "dialect": "mssql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "angular",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
