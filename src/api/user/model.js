@@ -39,16 +39,17 @@ module.exports = (sequelize, DataTypes) => {
                 this.setDataValue('password', hash)
             }
         },
-        // fullname: DataTypes.STRING,
+        avatar: {
+            type: DataTypes.STRING,
+            get: function () {
+                const value = this.getDataValue('avatar');
+                return `http://localhost:3000/${value}`
+            }
+        },
         role: DataTypes.STRING,
-        createdAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
-        // createdAt: null,
-        // updatedAt: null
     },
         {
-            createdAt: false,
-            updatedAt: false
+            timestamps: false,
         })
 
     // User.associate = function (models) {

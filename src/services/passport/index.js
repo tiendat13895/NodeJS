@@ -55,9 +55,9 @@ export const token = ({ required, roles = User.roles } = {}) => (req, res, next)
 
 
 passport.use('password', new BasicStrategy((username, password, done) => {
-    const hash = bcrypt.hashSync(password, 9)
-    User.findOne({ where: { username: username, password: hash } }).then(user => {
-        if (!user) {
+    User.findOne({ where: { username: username } }).then(user => {
+        const isVerify = bcrypt.compareSync(password, user.password)
+        if (!isVerify) {
             done(true)
         } else {
             done(null, user)

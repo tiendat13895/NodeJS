@@ -18,8 +18,10 @@ export default (apiRoot, routers) => {
   app.use(bodyParser.json())
   app.use(apiRoot, routers) //Import rooter
   app.use(express.static(path.join(__dirname, '../../../www')))
+  app.use(express.static(path.join(__dirname, '../../../apidoc')))
+  app.use('/images', express.static(path.join(__dirname, '../../../images')))
   app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../../www/index.html'))
+    res.sendFile(path.join(__dirname, '../../../apidoc/index.html'))
   })
   app.use(errorHandler())
   return app
